@@ -12,20 +12,20 @@ class PotterDB:
         resp = requests.get(f"{self.url}/books").json()
         length_data = len(resp["data"])
         print()
-        books = []
+        data = []
         for book in range(0, length_data):
             title = resp["data"][book]["attributes"]["title"]
             author = resp["data"][book]["attributes"]["author"]
             cover = resp["data"][book]["attributes"]["cover"]
-            books.append(title, author, cover)
-        return books
+            data.append([[title], [author], [cover]])
+        return data
 
     def getbooksbyid(self):
         pass
 
 
-if __name__ == "__main__":
-   obj = PotterDB()
-   booklist = obj.getbooks()
-   for book in booklist:
-       print(book)
+# if __name__ == "__main__":
+#    obj = PotterDB()
+#    data = obj.getbooks()
+#    for book in data:
+#        print(book)
